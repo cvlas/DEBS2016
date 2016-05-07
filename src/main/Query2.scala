@@ -7,7 +7,7 @@ import java.util.Calendar
 import scala.io.Source
 
 /**
- * Created by Christos on 10/3/2016.
+ * @author Kontopoulos Ioannis
  */
 class Query2 {
 
@@ -26,8 +26,6 @@ class Query2 {
   def run(k: Int, d: Int, clockStart: Long) = {
 
     val log = new FileWriter("log.txt", true)
-    //    println("Q2: Initiated log...")
-    //    log.write("Q2: Initiated log...\nLog is responding...\n")
 
     //============== Query 2 Start ==============
     try {
@@ -55,7 +53,7 @@ class Query2 {
 
     for(line <- Source.fromFile("merged2.dat")("UTF-8").getLines) {
       if (line != "") {
-        latStart = System.currentTimeMillis * 1000000 / 1000
+        latStart = System.currentTimeMillis * 1000
         val inStream = line.split("[|]")
         val event = inStream.length
         val now = getMillis(inStream.head)
@@ -196,7 +194,7 @@ class Query2 {
     }
     log.write("*" + Calendar.getInstance().getTime + ": Q2:\tFinished processing file.")
 
-    val end = System.currentTimeMillis*1000000/1000
+    val end = System.currentTimeMillis*1000
     val latAvg = (latSum/latAmt).toDouble/1000000
     val performance = (end-start).toDouble/1000000
     val performanceStr = String.format("%.6f", new java.lang.Double(performance))
@@ -235,7 +233,7 @@ class Query2 {
       lastOutput = curOutput
       outArr ++= Array(ts + "," + curOutput + "\n")
     }
-    val latEnd = System.currentTimeMillis*1000000/1000
+    val latEnd = System.currentTimeMillis*1000
     val latency = latEnd-latStart
     latSum += latency
     latAmt += 1
@@ -267,7 +265,7 @@ class Query2 {
       lastOutput = curOutput
       outArr ++= Array(ts + "," + curOutput + "\n")
     }
-    val latEnd = System.currentTimeMillis*1000000/1000
+    val latEnd = System.currentTimeMillis*1000
     val latency = latEnd-latStart
     latSum += latency
     latAmt += 1

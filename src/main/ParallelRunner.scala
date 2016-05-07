@@ -3,7 +3,7 @@ package main
 import scala.actors.Actor
 
 /**
-  * Created by yannis on 22-Mar-16.
+  * @author Kontopoulos Ioannis
   */
 class ParallelRunner(query: String, k: Int, d: Int, clockStart: Long) extends Actor {
 

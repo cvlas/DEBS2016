@@ -3,7 +3,7 @@ package main
 import scala.util.control.Breaks._
 
 /**
-  * Created by Christos on 10/3/2016.
+  * @author Kontopoulos Ioannis
   */
 class Graph {
   //variable that holds the range (always incremental)
@@ -35,9 +35,7 @@ class Graph {
     //variable that holds the id of the other end of the edge
     var valueAdded = 0L
     //variable that holds the key of a component
-    var key1 = 0
-    //variable that holds the key of the component to remove
-    var key2 = 0
+    var ckey = 0
     //means it can break out of a loop
     breakable {
       //loop through connected components
@@ -46,34 +44,29 @@ class Graph {
         if (valueAdded != 0L) {
           //and if current component contains the vertex we need to connect to
           if (v.contains(valueAdded)) {
-            //hold the key of component to remove it later
-            key2 = k
             //concatenate components
-            val comps = components(key1) ++ v
-            components += key1 -> comps
+            val comps = components(ckey) ++ v
+            components += ckey -> comps
             //get the size of concatenated component
             val newRange = comps.size
             //if the size is greater than current range, replace and break the loop
             if (newRange > range) range = newRange
             break
+            components -= k
           }
         }
         //if both ends of the edge are vertices within a component,
         //it means that the range will not change, so break
         if (v.contains(srcId) && v.contains(dstId)) break
         else if (v.contains(srcId)) {    //if srcId is contained in component, hold the key of the component and hold the vertex to connect
-          key1 = k
+          ckey = k
           valueAdded = dstId
         }
         else if (v.contains(dstId)) {    //if dstId is contained in component, hold the key of the component and hold the vertex to connect
-          key1 = k
+          ckey = k
           valueAdded = srcId
         }
       }
-    }
-    //if there was a concatenation of components, remove spare component
-    if (valueAdded != 0L) {
-      components -= key2
     }
   }
 
