@@ -10,7 +10,7 @@ import scala.io.Source
 /**
  * Created by Christos on 11/4/2016.
  */
-class Query1SuperFast {
+class Query1 {
 
   // Commented: [Id, (Author, TS, LastActivityTS, [CommentIDs], [DistinctCommenters])]
   var commented: collection.mutable.Map[Long, (String, Long, Long, Array[Long], Set[String])] = collection.mutable.Map()

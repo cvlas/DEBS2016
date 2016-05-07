@@ -9,7 +9,7 @@ class ParallelRunner(query: String, k: Int, d: Int, clockStart: Long) extends Ac
 
   override def act(): Unit = {
     if (query == "q1") {
-      val q1 = new Query1SuperFast
+      val q1 = new Query1
       q1.run(clockStart)
     }
     else {
