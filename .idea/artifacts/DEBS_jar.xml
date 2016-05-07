@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DEBS:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DEBS_jar</output-path>
+    <root id="archive" name="DEBS.jar">
+      <element id="module-output" name="DEBS" />
+      <element id="extracted-dir" path="$USER_HOME$/Usr/opt/scala-2.10.4/lib/scala-actors.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Usr/opt/scala-2.10.4/lib/scala-library.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Usr/opt/scala-2.10.4/lib/scala-reflect.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Usr/opt/scala-2.10.4/lib/scala-swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Usr/opt/scala-2.10.4/lib/scala-actors-migration.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
